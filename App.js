@@ -1,5 +1,6 @@
 import { createStackNavigator, createAppContainer } from "react-navigation";
 import firebase from "firebase";
+require("firebase/firestore");
 import MemoListScreen from './src/screens/MemoListScreen';
 import MemoDetailScreen from './src/screens/MemoDetailScreen';
 import MemoEditScreen from './src/screens/MemoEditScreen';
