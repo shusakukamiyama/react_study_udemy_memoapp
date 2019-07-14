@@ -2,6 +2,7 @@ import React from 'react';
 import {View, StyleSheet, TextInput, TouchableHighlight, Text} from 'react-native';
 import firebase from 'firebase';
 import { StackActions, NavigationActions } from "react-navigation";
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 class LoginScreen extends React.Component {
     state = {
@@ -24,6 +25,9 @@ class LoginScreen extends React.Component {
         .catch((error) => {
             console.log('error!', error);
         });
+    }
+    hundlePress() {
+        this.props.navigation.navigate('Signup');
     }
     render() {
         return (
@@ -49,6 +53,9 @@ class LoginScreen extends React.Component {
                 <TouchableHighlight style={styles.button} onPress={this.handleSubmit.bind(this)}>
                     <Text style={styles.buttonTitle}>ログインする</Text>
                 </TouchableHighlight>
+                <TouchableOpacity style={styles.signup} onPress={this.hundlePress.bind(this)}>
+                    <Text>メンバー登録する</Text>
+                </TouchableOpacity>
             </View>
         );
     }
@@ -86,6 +93,11 @@ const styles = StyleSheet.create({
     buttonTitle: {
         color:'#fff',
         fontSize: 18,
+    },
+    signup: {
+        marginTop:16,
+        alignSelf:'center',
+        fontSize:16,
     },
   });
 
